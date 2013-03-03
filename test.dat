@@ -1,0 +1,5 @@
+foo/./bar/../baz.txt
+foo//bar
+foo/./bar
+foo/bar
+/foo/bar//baz/..

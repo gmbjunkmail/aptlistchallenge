@@ -1,0 +1,21 @@
+This is a program written for an Apartment List coding challenge.
+
+This program takes a UNIX filepath as a string from standard input and formats it by evaluating . and .. operators. The single dot . operator evaluates to the current directory and is thus removed. The double dot .. operator evaluates to the parent directory, and will remove the current directory and .. if possible.
+
+To use this program, run filepath_normalize.py with Python 2.x. The program reads from standard input until an EOF (end of file) character is reached, then it outputs the formatted filepath. Note that reading until EOF is necessary because in a UNIX file system, all characters, excluding / and EOF, are valid characters in a file or directory name. Notably, this means that common separator characters such as newline, comma, tab, or semicolon are all considered part of a valid filepath.
+
+As an example, from a UNIX terminal, the program can be run as follows::
+
+    $ echo 'foo/./bar/../baz.txt' | ./filepath_normalize.py
+    foo/baz.txt
+
+To run test multiple filepaths at once, create a file with multiple file names separated by a separator string. The default separator string is the newline character. Notably, this means that filepaths with the separator string in them will not be valid for these tests. Create an expected output file consisting of the expected outputs, in order, separated by the same separator character, and name the output file the input filename with .out appended to the end. For example, the input file test.dat should have expected output file test.dat.out. Then use autotester.py and pass it the input filename as the first argument, and optionally the separator character as the second argument.
+
+As an example, from a UNIX terminal, the autotester can be run as follows::
+
+    $ ./autotester.py test.dat
+    Reading input from test.dat
+    Processing...
+    Wrote output to file test.dat.tmp
+    Comparing to expected output file test.dat.out
+    Test passed! Time to celebrate!
